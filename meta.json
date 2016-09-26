@@ -1,0 +1,20 @@
+{
+  "schema": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "label": "dingyiming"
+    },
+    "description": {
+      "type": "string",
+      "required": true,
+      "label": "Project description",
+      "default": "dingyiming"
+    },
+    "author": {
+      "type": "string",
+      "label": "Author",
+      "default": "dingyiming"
+    }
+  }
+}
