@@ -9,7 +9,7 @@
 <style lang="sass">
 .home {
   text-align:center;
-  padding-top: 30%;
+  margin-top: 10%;
   color: #41b883;
 }
 </style>
