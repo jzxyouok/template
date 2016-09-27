@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=dev webpack-dev-server  --config build/webpack.dev.js  --inline --hot  --port 8080",
     "build": "rm -rf dist && cross-env NODE_ENV=prod webpack  --config build/webpack.build.js  --progress --hide-modules",
-    "start": "pm2 kill && pm2 start pm2.json"
+    "start": "pm2 start pm2.json",
+    "server": "node server/main.js"
   },
   "dependencies": {
     "es6-promise": "^3.3.1",
