@@ -9,10 +9,7 @@
 <style lang="sass">
 .home {
   text-align:center;
-  padding-top: 10%;
+  margin-top: 10%;
   color: #41b883;
-  img {
-    width: 10rem;
-  }
 }
 </style>

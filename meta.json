@@ -3,17 +3,17 @@
     "name": {
       "type": "string",
       "required": true,
-      "label": "dingyiming"
+      "label": "项目名称"
     },
     "description": {
       "type": "string",
       "required": true,
-      "label": "Project description",
+      "label": "项目描述",
       "default": "dingyiming"
     },
     "author": {
       "type": "string",
-      "label": "Author",
+      "label": "作者",
       "default": "dingyiming"
     }
   }
