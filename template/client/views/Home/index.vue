@@ -6,13 +6,26 @@
   <router-link to="/404">
   <h2>Test</h2>
   </router-link>
+  <div class="test">
+    123
+  </div>
 </div>
 </template>
 
-<style lang="sass">
+<style lang="css">
 .home {
   text-align:center;
   margin-top: 10%;
   color: #41b883;
+}
+$color: green;
+.test {
+  size:100px;
+  @if 3 > 5 {
+      background: $color;
+  }
+  @else {
+      background: blue;
+  }
 }
 </style>

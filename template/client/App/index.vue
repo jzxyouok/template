@@ -6,12 +6,7 @@
 </div>
 </template>
 
-<style lang="sass">
-@import 'style/reset.scss';
-@import '~mobi.css/src/mobi.scss';
-@import 'style/init.scss';
-
-body{
-  background: #fbf9fe;
-}
+<style lang="css">
+@import 'style/reset.css';
+@import 'style/init.css';
 </style>

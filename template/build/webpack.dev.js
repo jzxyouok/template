@@ -55,17 +55,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: 'css-loader',
-        }),
-      },
-      {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: 'sass-loader',
-        }),
+        loader: 'style-loader!css-loader!postcss-loader',
       },
     ],
   },
@@ -77,14 +67,16 @@ module.exports = {
         },
         vue: {
           loaders: {
-            scss: 'style!css!sass',
+            css: 'style!css!postcss',
           },
+          postcss: function () {
+            return [require('postcss-salad')];
+          },
+          autoprefixer: true,
         },
-        postcss: [
-          autoprefixer({
-            browsers: ['last 3 versions'],
-          }),
-        ],
+        postcss: function () {
+          return [require('postcss-salad')];
+        },
       },
     }),
   ],
