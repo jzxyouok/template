@@ -17,3 +17,7 @@ ADD . /home/app
 RUN npm run build
 
 ENTRYPOINT npm run start;sleep 100000000
+
+EXPOSE 80
+
+ENV VIRUTAL_HOST <your subdomain>

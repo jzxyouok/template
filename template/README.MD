@@ -1,5 +1,13 @@
 # vue2-template-webapp
 
+## 基本使用
+
+- 修改域名映射 在Dockerfile里面
+
+```
+ENV VIRUTAL_HOST haha.haha.com
+```
+
 
 ## 技术栈
 
