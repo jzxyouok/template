@@ -30,6 +30,15 @@ module.exports = {
     extensions: ['.js', '.vue'],
   },
   module: {
+    preLoader: [
+      {
+        test: /\.js$/,
+        loader: 'eslint-loader',
+        exclude: [
+          /node_modules/,
+        ],
+      },
+    ],
     loaders: [
       {
         test: /\.vue$/,
@@ -55,31 +64,22 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader!postcss-loader',
+        loader: ['style-loader', 'css-loader', 'postcss-loader'],
       },
     ],
   },
-  plugins: [
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        eslint: {
-          configFile: '.eslintrc',
-        },
-        vue: {
-          loaders: {
-            css: 'style!css!postcss',
-          },
-          postcss: function () {
-            return [require('postcss-salad')];
-          },
-          autoprefixer: true,
-        },
-        postcss: function () {
-          return [require('postcss-salad')];
-        },
-      },
-    }),
-  ],
+  eslint: {
+    configFile: '.eslintrc',
+  },
+  vue: {
+    postcss: function () {
+      return [require('postcss-salad')];
+    },
+    autoprefixer: true,
+  },
+  postcss: function () {
+    return [require('postcss-salad')];
+  },
 };
 
 if (process.env.NODE_ENV === 'dev') {

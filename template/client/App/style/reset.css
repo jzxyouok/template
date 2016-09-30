@@ -3,21 +3,30 @@
 
 /* after */
 html {
-    font-family: sans-serif;
     -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    height: 100%
 }
 body {
-    margin: 0
+    margin: 0;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif
 }
-article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
     display: block
-}
-audio,
-canvas,
-progress,
-video {
-    display: inline-block
 }
 audio:not([controls]) {
     display: none;
@@ -31,20 +40,16 @@ template, [hidden] {
 }
 a {
     background-color: transparent;
-    -webkit-text-decoration-skip: objects
+    -webkit-text-decoration-skip: objects;
+    text-decoration: none
 }
 a:active,
 a:hover {
     outline-width: 0
 }
 abbr[title] {
-    border-bottom: none;
     text-decoration: underline;
     text-decoration: underline dotted
-}
-b,
-strong {
-    font-weight: inherit
 }
 b,
 strong {
@@ -52,14 +57,6 @@ strong {
 }
 dfn {
     font-style: italic
-}
-h1 {
-    font-size: 2em;
-    margin: 0.67em 0
-}
-mark {
-    background-color: #ff0;
-    color: #000
 }
 small {
     font-size: 80%
@@ -71,11 +68,11 @@ sup {
     position: relative;
     vertical-align: baseline
 }
-sub {
-    bottom: -0.25em
-}
 sup {
     top: -0.5em
+}
+sub {
+    bottom: -0.25em
 }
 img {
     border-style: none
@@ -90,13 +87,11 @@ samp {
     font-family: monospace, monospace;
     font-size: 1em
 }
-figure {
-    margin: 1em 40px
-}
-hr {
-    box-sizing: content-box;
-    height: 0;
-    overflow: visible
+pre {
+    overflow: auto;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word
 }
 button,
 input,
@@ -108,11 +103,7 @@ textarea {
     margin: 0;
     vertical-align: middle
 }
-optgroup {
-    font-weight: bold
-}
-button,
-input {
+button, input, input {
     overflow: visible
 }
 button,
@@ -121,42 +112,6 @@ select {
 }
 button, html [type="button"], [type="reset"], [type="submit"] {
     -webkit-appearance: button
-}
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-    border-style: none;
-    padding: 0
-}
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-    outline: 1px dotted ButtonText
-}
-fieldset {
-    border: 1px solid #c0c0c0;
-    margin: 0 2px;
-    padding: 0.35em 0.625em 0.75em
-}
-legend {
-    box-sizing: border-box;
-    color: inherit;
-    display: table;
-    max-width: 100%;
-    padding: 0;
-    white-space: normal
-}
-textarea {
-    overflow: auto;
-    resize: none;
-    vertical-align: top
-}
-input,
-select,
-textarea {
-    outline: 0
 }
 [disabled] {
     cursor: default
@@ -178,25 +133,40 @@ textarea {
 [type="search"]::-webkit-search-decoration {
     -webkit-appearance: none
 }
-input::-moz-placeholder,
-textarea::-moz-placeholder {
-    color: $colorPlaceholder
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit
 }
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
-    color: $colorPlaceholder
+textarea {
+    overflow: auto;
+    resize: none;
+    vertical-align: top
 }
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
-    color: $colorPlaceholder
+optgroup {
+    font-weight: bold
+}
+input,
+select,
+textarea {
+    outline: 0
+}
+textarea,
+input {
+    -webkit-user-modify: read-write-plaintext-only
 }
 input::-ms-clear,
 input::-ms-reveal {
     display: none
 }
-::-webkit-file-upload-button {
-    -webkit-appearance: button;
-    font: inherit
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    color: inherit;
+    opacity: 0.54
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: inherit;
+    opacity: 0.54
 }
 table {
     border-collapse: collapse;
@@ -218,56 +188,10 @@ ul, ol {
 }
 h1, h2, h3, h4, h5, h6 {
     font-size: 100%;
-    font-weight: normal
+    font-weight: normal;
+    line-height: 2
+}
+* {
+    box-sizing: border-box
 }
 
-
-/* before */
-.table {
-  @reset-nested tabel;
-}
-.table th,
-.table td {
-  @reset-nested tabel-cell;
-}
-ul, ol {
-  @reset-nested list;
-}
-.regular-font {
-  @reset-nested font;
-}
-.box {
-  @reset-nested boxModel;
-}
-
-/* after */
-.table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  vertical-align: middle;
-}
-.table th,
-.table td {
-  background-color: #fff;
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-  margin: 0;
-  padding: 0;
-}
-ul, ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.regular-font {
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-}
-.box {
-  margin: 0;
-  padding: 0;
-  width: auto;
-  height: auto;
-}
