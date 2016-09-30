@@ -29,56 +29,55 @@ module.exports = {
     extensions: ['.js', '.vue'],
   },
   module: {
-    preLoader: [
-      {
-        test: /\.js$/,
-        loader: 'eslint-loader',
-        exclude: [
-          /node_modules/,
-        ],
-      },
-    ],
-    loaders: [
-      {
-        test: /\.vue$/,
-        loader: 'vue',
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.(png|jpg|jpeg|gif)$/,
-        loader: 'url?limit=10000&name=images/[name].[ext]',
-      }, {
-        test: /\.(woff|svg|ttf|eot)$/,
-        loader: 'url?limit=10000&name=iconfont/[name].[ext]',
-      }, {
-        test: /\.json$/,
-        loader: 'json',
-      }, {
-        test: /\.html$/,
-        loader: 'html-loader',
-      },
-      {
-        test: /\.css$/,
-        loader: ['style-loader', 'css-loader', 'postcss-loader'],
-      },
-    ],
+    rules: [{
+      enforce: 'pre',
+      test: /\.js$/,
+      loader: 'eslint-loader',
+      exclude: [
+        /node_modules/,
+      ],
+    }, {
+      test: /\.vue$/,
+      loader: 'vue',
+    }, {
+      test: /\.js$/,
+      loader: 'babel',
+      exclude: /node_modules/,
+    }, {
+      test: /\.(png|jpg|jpeg|gif)$/,
+      loader: 'url?limit=10000&name=images/[name].[ext]',
+    }, {
+      test: /\.(woff|svg|ttf|eot)$/,
+      loader: 'url?limit=10000&name=iconfont/[name].[ext]',
+    }, {
+      test: /\.json$/,
+      loader: 'json',
+    }, {
+      test: /\.html$/,
+      loader: 'html-loader',
+    }, {
+      test: /\.css$/,
+      loaders: ['style-loader', 'css-loader', 'postcss-loader'],
+    }, ],
   },
-  eslint: {
-    configFile: '.eslintrc',
-  },
-  vue: {
-    postcss: [
-      require('postcss-salad'),
-    ],
-    css: ExtractTextPlugin.extract({
-      loader: 'css-loader',
-      fallbackLoader: 'vue-style-loader',
-    }),
-  },
+  plugins: [
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        eslint: {
+          configFile: '.eslintrc',
+        },
+        vue: {
+          postcss: [
+            require('postcss-salad'),
+          ],
+          css: ExtractTextPlugin.extract({
+            loader: 'css-loader!postcss-loader',
+            fallbackLoader: 'vue-style-loader',
+          }),
+        },
+      }
+    })
+  ],
 };
 
 if (process.env.NODE_ENV === 'dev') {
