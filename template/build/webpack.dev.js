@@ -2,7 +2,6 @@ var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: {
@@ -72,13 +71,13 @@ module.exports = {
     configFile: '.eslintrc',
   },
   vue: {
-    postcss: function () {
-      return [require('postcss-salad')];
-    },
-    autoprefixer: true,
-  },
-  postcss: function () {
-    return [require('postcss-salad')];
+    postcss: [
+      require('postcss-salad'),
+    ],
+    css: ExtractTextPlugin.extract({
+      loader: 'css-loader',
+      fallbackLoader: 'vue-style-loader',
+    }),
   },
 };
 
@@ -94,15 +93,6 @@ if (process.env.NODE_ENV === 'dev') {
   module.exports.devtool = '#cheap-module-eval-source-map';
 
   module.exports.plugins = [
-    // 抽离公共js
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'vendor_vue.js',
-    }),
-    new ExtractTextPlugin({
-      filename: 'app.css',
-      allChunks: true,
-    }),
     // 自动注入 html
     new HtmlWebpackPlugin({
       filename: 'index.html',

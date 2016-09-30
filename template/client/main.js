@@ -12,7 +12,7 @@ FastClick.attach(document.body);
 const app = new Vue({
   router,
   store,
-  ...App,
+  render: h => h(App),
 });
 
 export { app, router, store };

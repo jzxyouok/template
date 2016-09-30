@@ -9,6 +9,10 @@
   <div class="test">
     123
   </div>
+  <div class="flex">
+    <p>123</p>
+    <p>sdaklfj</p>
+  </div>
 </div>
 </template>
 
@@ -18,6 +22,10 @@
   margin-top: 10%;
   color: #41b883;
 }
+.flex {
+  display: flex;
+}
+
 $color: green;
 .test {
   size:100px;

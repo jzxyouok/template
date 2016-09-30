@@ -5,6 +5,7 @@ var merge = require('webpack-merge');
 var dev = require('./webpack.dev');
 var path = require('path');
 var CompressionWebpackPlugin = require('compression-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = merge(dev, {
   output: {
@@ -19,10 +20,7 @@ module.exports = merge(dev, {
 if (process.env.NODE_ENV === 'prod') {
   module.exports.devtool = false;
   module.exports.plugins = [
-    new ExtractTextPlugin({
-      filename: 'css/app.[contenthash].css',
-      allChunks: true,
-    }),
+    new ExtractTextPlugin('css/app.[contenthash].css'),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
     }),
@@ -40,6 +38,11 @@ if (process.env.NODE_ENV === 'prod') {
       },
       sourceMap: false,
     }),
+    new OptimizeCssAssetsPlugin({
+      cssProcessor: require('cssnano'),
+      cssProcessorOptions: { discardComments: {removeAll: true } },
+      canPrint: true,
+    }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     // 自动注入 html
     new HtmlWebpackPlugin({
@@ -48,7 +51,7 @@ if (process.env.NODE_ENV === 'prod') {
     }),
     // Gzip
     new CompressionWebpackPlugin({
-      asset: "[path].gz[query]",
+      asset: '[path].gz[query]',
       algorithm: 'gzip',
       test: /\.js$|\.css$|\.html$/,
       threshold: 10240,
