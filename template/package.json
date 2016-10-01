@@ -14,9 +14,10 @@
     "es6-promise": "^3.3.1",
     "isomorphic-fetch": "^2.2.1",
     "normalize.css": "^4.2.0",
-    "vue": "^2.0.0-rc.7",
-    "vue-router": "^2.0.0-rc.5",
-    "vuex": "^2.0.0-rc.5",
+    "vue": "^2.0.1",
+    "vue-loader": "^9.5.1",
+    "vue-router": "^2.0.0",
+    "vuex": "^2.0.0",
     "vuex-router-sync": "^3.0.0"
   },
   "devDependencies": {
