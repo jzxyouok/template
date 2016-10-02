@@ -29,14 +29,7 @@ module.exports = {
     extensions: ['.js', '.vue'],
   },
   module: {
-    rules: [{
-      enforce: 'pre',
-      test: /\.js$/,
-      loader: 'eslint-loader',
-      exclude: [
-        /node_modules/,
-      ],
-    }, {
+    loaders: [{
       test: /\.vue$/,
       loader: 'vue',
     }, {
@@ -60,24 +53,19 @@ module.exports = {
       loaders: ['style-loader', 'css-loader', 'postcss-loader'],
     }, ],
   },
-  plugins: [
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        eslint: {
-          configFile: '.eslintrc',
-        },
-        vue: {
-          postcss: [
-            require('postcss-salad'),
-          ],
-          css: ExtractTextPlugin.extract({
-            loader: 'css-loader!postcss-loader',
-            fallbackLoader: 'vue-style-loader',
-          }),
-        },
-      }
-    })
-  ],
+  eslint: {
+    configFile: '.eslintrc',
+  },
+  vue: {
+    postcss: [
+      require('postcss-salad'),
+    ],
+    css: ExtractTextPlugin.extract({
+      loader: 'css-loader!postcss-loader',
+      fallbackLoader: 'vue-style-loader',
+    }),
+  },
+  plugins: [],
 };
 
 if (process.env.NODE_ENV === 'dev') {
