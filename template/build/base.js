@@ -59,6 +59,17 @@ module.exports = {
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      vue: {
+        postcss: [
+          require('autoprefixer')({
+            browsers: ['last 3 versions']
+          }),
+          require('precss')(),
+        ],
+      },
+    })
   ],
+
 }

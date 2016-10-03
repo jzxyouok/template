@@ -1,9 +1,11 @@
 const webpack = require('webpack');
 const path = require('path')
 const merge = require('webpack-merge')
-const baseConfig = require('./webpack.base')
+const baseConfig = require('./base')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
 
 const productionConf = merge(baseConfig, {
   output: {

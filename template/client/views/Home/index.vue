@@ -5,9 +5,6 @@
   <router-link to="/404">
   <h2>Test</h2>
   </router-link>
-  <div class="flex">
-  	precss
-  </div>
 </div>
 </template>
 
@@ -18,9 +15,6 @@ $color: #41b883;
   text-align:center;
   margin-top: 10%;
   color: $color;
-}
-.flex {
-	display: flex;
 }
 
 </style>

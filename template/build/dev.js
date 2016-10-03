@@ -1,24 +1,29 @@
 const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
-const baseConfig = require('./webpack.base')
-const webpackHotMiddlewareConfig = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000'
+const baseConfig = require('./base')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const developmentConf = merge(baseConfig, {
-  entry: getEntries(webpackHotMiddlewareConfig),
-
+  output: {
+    path: path.resolve(__dirname, '../dist'),
+    filename: '[name].js',
+    publicPath: '',
+  },
+  devServer: {
+    historyApiFallback: true,
+    hot: true,
+    progress: false,
+    colors: true,
+    proxy: {},
+  },
+  devtool: '#cheap-module-eval-source-map',
   plugins: [
-    new webpack.LoaderOptionsPlugin({
-      vue: {
-        postcss: [
-          require('autoprefixer')({
-            browsers: ['last 3 versions']
-          }),
-          require('precss')(),
-        ],
-      },
-    })
-  ]
-})
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: path.resolve(__dirname, '../client/index.html'),
+    }),
+  ],
+});
 
-module.exports = developmentConf
+module.exports = developmentConf;
