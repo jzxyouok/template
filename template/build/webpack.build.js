@@ -40,7 +40,7 @@ if (process.env.NODE_ENV === 'prod') {
     }),
     new OptimizeCssAssetsPlugin({
       cssProcessor: require('cssnano'),
-      cssProcessorOptions: { discardComments: {removeAll: true } },
+      cssProcessorOptions: { discardComments: { removeAll: true } },
       canPrint: true,
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),

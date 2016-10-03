@@ -1,9 +1,8 @@
-var path = require('path');
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
+  context: path.resolve(__dirname, '../'),
   entry: {
     app: path.resolve(__dirname, '../client/entry-client.js'),
     vendor: [
@@ -15,8 +14,9 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].js',
-    publicPath: '',
+    publicPath: '/',
+    filename: 'js/[name].js',
+    chunkFilename: 'js/[name].js'
   },
   resolve: {
     alias: {
@@ -26,7 +26,7 @@ module.exports = {
       components: path.resolve(__dirname, '../client/components'),
       utils: path.resolve(__dirname, '../client/App/utils'),
     },
-    extensions: ['.js', '.vue'],
+    extensions: ['.js', '.vue']
   },
   module: {
     rules: [{
@@ -37,11 +37,11 @@ module.exports = {
       exclude: /node_modules/,
     }, {
       test: /\.vue$/,
-      loader: 'vue',
+      loader: 'vue'
     }, {
       test: /\.js$/,
       loader: 'babel',
-      exclude: /node_modules/,
+      exclude: /node_modules/
     }, {
       test: /\.(png|jpg|jpeg|gif)$/,
       loader: 'url?limit=10000&name=images/[name].[ext]',
@@ -49,49 +49,16 @@ module.exports = {
       test: /\.(woff|svg|ttf|eot)$/,
       loader: 'url?limit=10000&name=iconfont/[name].[ext]',
     }, {
-      test: /\.json$/,
-      loader: 'json',
-    }, {
       test: /\.html$/,
       loader: 'html-loader',
     }, {
       test: /\.css$/,
       loaders: ['style-loader', 'css-loader', 'postcss-loader'],
-    }, ],
+    }]
   },
   plugins: [
-    new webpack.LoaderOptionsPlugin({
-      vue: {
-        postcss: [
-          require('autoprefixer')({
-            browsers: ['last 3 versions']
-          }),
-          require('precss')(),
-        ],
-      },
-      eslint: {
-        configFile: '.eslintrc',
-      },
-    })
-  ]
-};
-
-if (process.env.NODE_ENV === 'dev') {
-  // 配置开发服务器
-  module.exports.devServer = {
-    historyApiFallback: true,
-    hot: true,
-    progress: false,
-    colors: true,
-    proxy: {},
-  };
-  module.exports.devtool = '#cheap-module-eval-source-map';
-
-  module.exports.plugins = [
-    // 自动注入 html
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: path.resolve(__dirname, '../client/index.html'),
-    }),
-  ];
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ],
 }
