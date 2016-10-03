@@ -29,6 +29,12 @@ module.exports = {
     extensions: ['.js', '.vue'],
   },
   module: {
+    preLoaders: [{
+      test: /\.js$/,
+      loader: 'eslint-loader',
+      include: [path.resolve(__dirname, "../client")],
+      exclude: /node_modules/,
+    }, ],
     loaders: [{
       test: /\.vue$/,
       loader: 'vue',

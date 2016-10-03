@@ -3,5 +3,3 @@ config/*.js
 .eslintrc.js
 build/*.js
 src/index.html
-src/api/Pay.js
-src/entry-client.js
