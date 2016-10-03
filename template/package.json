@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server  --config build/dev.js  --inline --hot  --port 8080",
-    "build": "rm -rf dist && webpack  --config build/build.js  --progress --hide-modules",
+    "build": "rm -rf dist && webpack  --config build/prod.js  --progress --hide-modules",
     "start": "pm2 start pm2.json",
     "server": "node server/test.js"
   },
