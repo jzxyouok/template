@@ -12,6 +12,9 @@
     text-color="#ff9900"
     text-template="{value}">
   </el-rate>
+  <div class="flex">
+    flex autoprefixer hmr111222
+  </div>
 </div>
 </template>
 
@@ -36,13 +39,15 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="scss">
 .home {
   text-align:center;
-  padding-top: 30%;
   color: #20A0FF;
   img {
     width: 10rem;
   }
+}
+.flex {
+  display: flex;
 }
 </style>

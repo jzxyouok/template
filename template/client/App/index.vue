@@ -6,8 +6,6 @@
 </div>
 </template>
 
-<style lang="sass">
-@import "~normalize.css";
-@import "~element-ui/lib/theme-default/index.css";
+<style lang="scss">
 @import "style/init.scss";
 </style>

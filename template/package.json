@@ -4,13 +4,13 @@
   "author": "dingyiming <315129552@qq.com>",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev webpack-dev-server  --config build/webpack.dev.js  --inline --hot  --port 8080",
-    "build": "rm -rf dist && cross-env NODE_ENV=prod webpack  --config build/webpack.build.js  --progress --hide-modules",
+    "dev": "webpack-dev-server  --config build/dev.js  --inline --hot  --port 8080",
+    "build": "rm -rf dist && webpack  --config build/prod.js  --progress --hide-modules",
     "start": "pm2 start pm2.json",
     "server": "node server/main.js"
   },
   "dependencies": {
-    "element-ui": "^1.0.0-rc.4",
+    "element-ui": "^1.0.0-rc.5",
     "es6-promise": "^3.3.1",
     "isomorphic-fetch": "^2.2.1",
     "normalize.css": "^4.2.0",
@@ -45,6 +45,7 @@
     "json-loader": "^0.5.4",
     "node-sass": "^3.9.3",
     "postcss-loader": "^0.11.1",
+    "precss": "^1.4.0",
     "sass-loader": "^4.0.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
