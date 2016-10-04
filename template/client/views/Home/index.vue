@@ -5,6 +5,12 @@
   <router-link to="/404">
   <h2>Test</h2>
   </router-link>
+  <div class="flex">
+    flex autoprefixer
+  </div>
+  <div class="rem">
+    1
+  </div>
 </div>
 </template>
 
@@ -17,4 +23,15 @@ $color: #41b883;
   color: $color;
 }
 
+.flex {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.rem {
+  width: 1rem;
+  height: 1rem;
+  margin:  0 auto;
+  background-color: #e66;
+}
 </style>
