@@ -13,12 +13,22 @@ const developmentConf = merge(baseConfig, {
   devServer: {
     historyApiFallback: true,
     hot: true,
-    progress: false,
+    progress: true,
     colors: true,
     proxy: {},
   },
   devtool: '#cheap-module-eval-source-map',
   plugins: [
+    new webpack.LoaderOptionsPlugin({
+      vue: {
+        postcss: [
+          require('autoprefixer')({
+            browsers: ['> 0%']
+          }),
+          require('precss')(),
+        ],
+      }
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, '../client/index.html'),

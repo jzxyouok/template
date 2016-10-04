@@ -1,5 +1,5 @@
-const path = require('path')
-const webpack = require('webpack')
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -57,17 +57,8 @@ module.exports = {
     }]
   },
   plugins: [
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
-    new webpack.LoaderOptionsPlugin({
-      vue: {
-        postcss: [
-          require('autoprefixer')({
-            browsers: ['last 3 versions']
-          }),
-          require('precss')(),
-        ],
-      },
-    })
   ],
 
 }

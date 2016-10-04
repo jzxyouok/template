@@ -9,7 +9,7 @@
     flex autoprefixer
   </div>
   <div class="rem">
-    1
+    122222
   </div>
 </div>
 </template>
