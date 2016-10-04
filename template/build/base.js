@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const webpackHotMiddlewareConfig = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000'
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -60,19 +61,8 @@ module.exports = {
     }]
   },
   plugins: [
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
-    new webpack.LoaderOptionsPlugin({
-      vue: {
-        postcss: [
-          require('autoprefixer')({
-            browsers: ['last 3 versions']
-          }),
-        ],
-        loaders: {
-          scss: 'style!css!sass',
-        },
-      }
-    }),
   ],
 
 }
