@@ -10,6 +10,7 @@ module.exports = {
       'vue-router',
       'vuex',
       'fastclick',
+      'normalize.css',
     ],
   },
   output: {
