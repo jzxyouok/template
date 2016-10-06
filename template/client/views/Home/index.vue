@@ -11,10 +11,21 @@
   <div class="rem">
     <mt-switch>开关</mt-switch>
     <mt-progress :value="80" :bar-height="5"></mt-progress>
-
   </div>
 </div>
 </template>
+
+<script>
+import { Cell, Switch, Progress } from 'mint-ui';  
+
+export default {
+  components: {
+    MtCell: Cell,
+    MtSwitch: Switch,
+    MtProgress: Progress,
+  },
+};
+</script>
 
 <style lang="css">
 $color: #999;
