@@ -15,7 +15,7 @@ ENV VIRUTAL_HOST haha.haha.com
 - vue-router
 - vuex
 - Fetch
-- mobi.css
+- normalize.css
 - webpack2
 - SCSS
 - BEM
