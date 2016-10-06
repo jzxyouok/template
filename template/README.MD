@@ -1,4 +1,4 @@
-# vue2-template-webapp
+# template-vue2-mint-ui
 
 ## 基本使用
 
@@ -15,7 +15,7 @@ ENV VIRUTAL_HOST haha.haha.com
 - vue-router
 - vuex
 - Fetch
-- mobi.css
+- mint-ui
 - webpack2
 - SCSS
 - BEM

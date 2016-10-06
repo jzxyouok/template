@@ -6,16 +6,18 @@
   <h2>Test</h2>
   </router-link>
   <div class="flex">
-    flex autoprefixer
+      <mt-cell title="flex autoprefixer"></mt-cell>
   </div>
   <div class="rem">
-    122222
+    <mt-switch>开关</mt-switch>
+    <mt-progress :value="80" :bar-height="5"></mt-progress>
+
   </div>
 </div>
 </template>
 
 <style lang="css">
-$color: #41b883;
+$color: #999;
 
 .home {
   text-align:center;
@@ -32,6 +34,5 @@ $color: #41b883;
   width: 1rem;
   height: 1rem;
   margin:  0 auto;
-  background-color: #e66;
 }
 </style>
